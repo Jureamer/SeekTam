@@ -31,7 +31,7 @@ function App() {
 		axios
 			.post(`${process.env.REACT_APP_SERVER_API_URL}/member/login`, {
 				memberInfo,
-			})
+			}, { withCredentials: true })
 			.then(response => {
 				console.log(
 					`JSON.stringify(response.data): ${JSON.stringify(
