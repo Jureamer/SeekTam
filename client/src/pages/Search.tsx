@@ -93,6 +93,7 @@ export default function Search() {
 	const [selectedKeyword, setSelectedKeyword] = useState('')
 	const [focusedFoodIdx, setFocusedFoodIdx] = useState<number>(-1)
 	const [selectedFoodId, setSelectedFoodId] = useState<number>(-1)
+	const [viewComparison, setViewComparison] = useState<number>(-1)
 	const { searchConditions } = useSelector(
 		(state: RootState) => state.searchInfo,
 	)

@@ -4,17 +4,14 @@ import axios from 'axios'
 import NavigatorExceptSearch from '../components/NavigatorExceptSearch'
 import MallRanking from '../components/MallRanking'
 import ViewsRanking from '../components/ViewsRanking'
-
-<<<<<<< HEAD
 import { FoodListType, SearchTitleTypeKor } from './Search'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '..'
 import { SearchCondition } from '../store/SearchInfoSlice'
 import FooterMain from '../components/FooterMain'
 import { currentPageUpdate } from '../store/CurrentPageSlice'
-=======
 import { FoodListType } from './Search'
->>>>>>> 6ae5cca (feat: 회원탈퇴 화면 기능 적용)
+import { FoodListType } from './Search'
 
 export default function Main() {
 	const [relatedFoodList, setRelatedFoodList] = useState([])
