@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import KeywordSearchBar from '../components/KeywordSearchBar'
 import axios from 'axios'
-import KeywordComponent from '../components/KeywordComponent'
 import NavigatorExceptSearch from '../components/NavigatorExceptSearch'
 import MallRanking from '../components/MallRanking'
 import ViewsRanking from '../components/ViewsRanking'
 
-import { FoodListType, SearchTitleTypeKor } from './Search'
-import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '..'
-import { SearchCondition } from '../store/SearchInfoSlice'
-import FooterMain from '../components/FooterMain'
-import { currentPageUpdate } from '../store/CurrentPageSlice'
+import { FoodListType } from './Search'
 
 export default function Main() {
 	const [relatedFoodList, setRelatedFoodList] = useState([])

@@ -20,7 +20,7 @@ export default function ComparisonFood({ food }: { food: FoodType }) {
 				alt={`${food.foodName} 이미지`}
 				className='m-auto rounded-md w-80 h-80'
 			/>
-			<h1 className='mt-10 text-center text-g900 text-12 h-30'>
+			<h1 className='mt-10 text-center text-grey900 text-14'>
 				{food.foodName}
 			</h1>
 			<div
