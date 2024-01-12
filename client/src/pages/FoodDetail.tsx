@@ -127,7 +127,9 @@ export default function FoodDetail() {
 	}
 
 	const handlePurchaseClick = () => {
-		window.location.href = `https://www.coupang.com/np/search?component=&q=${foodInfo.foodName}&channel=user`
+		window.open(
+			`https://www.coupang.com/np/search?component=&q=${foodInfo.foodName}&channel=user`,
+		)
 	}
 
 	const debouncedHandleLikeFood = useDebounce(handleLikeFood, 300)
