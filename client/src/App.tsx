@@ -6,6 +6,7 @@ import SearchBtn from './components/btn/SearchBtn'
 import Footer from './components/Footer'
 import { useDispatch } from 'react-redux'
 import { userInfoUpdate } from './store/UserInfoSlice'
+import { currentPageUpdate } from './store/CurrentPageSlice'
 
 function App() {
 	const navigate = useNavigate()
@@ -20,7 +21,10 @@ function App() {
 
 	const [memberInfo, setMemberInfo] = useState({})
 
-	useEffect(() => {}, [])
+	useEffect(() => {
+		dispatcher(currentPageUpdate(''))
+	}, [])
+
 	const kakaoLogin = () => {
 		KAKAO.Auth.authorize({
 			redirectUri: REDIRECT_URI,
@@ -29,9 +33,13 @@ function App() {
 
 	const login = () => {
 		axios
-			.post(`${process.env.REACT_APP_SERVER_API_URL}/member/login`, {
-				memberInfo,
-			}, { withCredentials: true })
+			.post(
+				`${process.env.REACT_APP_SERVER_API_URL}/member/login`,
+				{
+					memberInfo,
+				},
+				{ withCredentials: true },
+			)
 			.then(response => {
 				console.log(
 					`JSON.stringify(response.data): ${JSON.stringify(
@@ -92,7 +100,7 @@ function App() {
 	}
 
 	return (
-		<div className='absolute flex-row h-full bg-white border-solid w-500 z-900'>
+		<div className='absolute flex-row h-full bg-white border-solid w-500 z-999'>
 			<div className='flex justify-center m-auto mb-50'>
 				<div className='flex flex-col justify-center m-0'>
 					<img src={logo} className='w-250' />
