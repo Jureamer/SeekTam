@@ -25,10 +25,8 @@ import UserInfoSlice from './store/UserInfoSlice'
 import Profile from './pages/Profile'
 import CustomerSupport from './pages/CustomerSupport'
 import FoodDetail from './pages/FoodDetail'
-import Range from './components/Range'
 import SearchInfoSlice, { SearchInfo } from './store/SearchInfoSlice'
 import ComparisonSlice, { IComparisonFood } from './store/ComparisonSlice'
-import ComparisonViewModal from './components/modal/ComparisonViewModal'
 /* persist 선언 */
 const persistConfig = {
 	key: 'root',
@@ -85,7 +83,6 @@ ReactDOM.render(
 				<Route path='/profile' element={<Profile />} />
 				<Route path='/detail' element={<FoodDetail />} />
 				<Route path='/customer-support' element={<CustomerSupport />} />
-				<Route path='/comparison' element={<ComparisonViewModal />} />
 			</Routes>
 			<Footer />
 		</BrowserRouter>

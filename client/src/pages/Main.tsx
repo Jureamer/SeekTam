@@ -4,13 +4,12 @@ import axios from 'axios'
 import NavigatorExceptSearch from '../components/NavigatorExceptSearch'
 import MallRanking from '../components/MallRanking'
 import ViewsRanking from '../components/ViewsRanking'
-import { FoodListType, SearchTitleTypeKor } from './Search'
+import { SearchTitleTypeKor } from './Search'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '..'
 import { SearchCondition } from '../store/SearchInfoSlice'
 import FooterMain from '../components/FooterMain'
 import { currentPageUpdate } from '../store/CurrentPageSlice'
-import { FoodListType } from './Search'
 import { FoodListType } from './Search'
 
 export default function Main() {
@@ -20,11 +19,9 @@ export default function Main() {
 	const dispatcher = useDispatch()
 	const currentPage = useSelector((state: RootState) => state.currentPage)
 
-	// 현재 페이지가 Home이 아니라면 home으로 변경
+	// 현재 페이지 home으로 변경
 	useEffect(() => {
-		if (currentPage !== 'home') {
-			dispatcher(currentPageUpdate('home'))
-		}
+		dispatcher(currentPageUpdate('home'))
 	}, [])
 
 	const fetchKeywordSearch = (keyword: string) => {

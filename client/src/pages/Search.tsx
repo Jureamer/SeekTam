@@ -325,11 +325,13 @@ export default function Search() {
 
 	return (
 		<div className='absolute flex-row h-[100vh] overflow-scroll bg-white w-500'>
-			{viewComparison && (
+			{viewComparison !== -1 ? (
 				<ComparisonViewModal
 					comparisonFood={comparisonFood}
 					handleComparisonView={handleComparisonView}
 				/>
+			) : (
+				<div></div>
 			)}
 			<KeywordSearchPageBar
 				fetchKeywordSearch={fetchKeywordSearch}

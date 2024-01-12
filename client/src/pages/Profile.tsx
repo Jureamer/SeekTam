@@ -118,7 +118,7 @@ export default function Profile() {
 					<span className='font-medium'>회원탈퇴</span>
 					<BsArrowRightCircle
 						onClick={() => alert('서비스 준비 중입니다.')}
-						onClick={handleWithdrawal}
+						// onClick={handleWithdrawal}
 						className='cursor-pointer text-g400'
 						size={24}
 					/>
