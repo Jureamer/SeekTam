@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { userInfoReset } from '../store/UserInfoSlice'
 
 type ViewsRankingProps = {
 	ranking: number
@@ -19,6 +21,7 @@ export default function ViewsRanking({
 	const SERVER_API_URL = process.env.REACT_APP_SERVER_API_URL
 	const [rankingData, setRankingData] = useState<ViewsRankingProps[]>()
 	const navigator = useNavigate()
+	const dispatch = useDispatch()
 	const getViewsRanking = () => {
 		axios
 			.get(`${SERVER_API_URL}/foods/search/ranking`, {
@@ -28,7 +31,11 @@ export default function ViewsRanking({
 				// 랭킹 기준으로 내림차순 정렬
 				setRankingData(res.data)
 			})
-			.catch(err => console.log(err))
+			.catch(err => {
+				console.log(err)
+				dispatch(userInfoReset())
+				navigator('/')
+			})
 	}
 
 	useEffect(() => {

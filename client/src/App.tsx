@@ -2,11 +2,10 @@ import React, { useEffect, useRef, useState } from 'react'
 import './tailwind.css'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import SearchBtn from './components/btn/SearchBtn'
-import Footer from './components/Footer'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { userInfoUpdate } from './store/UserInfoSlice'
 import { currentPageUpdate } from './store/CurrentPageSlice'
+import { RootState } from '.'
 
 function App() {
 	const navigate = useNavigate()
@@ -20,9 +19,15 @@ function App() {
 	const SERVER_API_URL = process.env.REACT_APP_SERVER_API_URL
 
 	const [memberInfo, setMemberInfo] = useState({})
+	const userInfo = useSelector((state: RootState) => state.userInfo)
 
 	useEffect(() => {
 		dispatcher(currentPageUpdate(''))
+		console.log('userInfo: ', userInfo)
+
+		if (userInfo.id) {
+			navigate('/main')
+		}
 	}, [])
 
 	const kakaoLogin = () => {

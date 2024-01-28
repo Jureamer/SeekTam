@@ -77,32 +77,14 @@ public class OAuthKakaoClient implements OAuthClient {
 
     @Override
     public String requestAccessToken(String accessToken) {
-<<<<<<< HEAD
-        System.out.println("requestAccessToken +++++++++");
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> a037018 (build: 빌드 파일 병합)
->>>>>>> 9bd9ed5 (build: merge unmerged files)
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
         httpHeaders.set("Authorization", "Bearer " + accessToken);
         HttpEntity<?> request = new HttpEntity<>(new LinkedMultiValueMap<>(), httpHeaders);
 
         KakaoUserInfo kakaoUserInfo = restTemplate.postForObject(infoURI, request, KakaoUserInfo.class);
-<<<<<<< HEAD
-        String jwtInfo = makeJwt(kakaoUserInfo.getKakaoAccount().getEmail().toString(), accessExpirationTime);
-        System.out.println("jwtInfo : " + jwtInfo);
-        return jwtInfo;
-=======
-<<<<<<< HEAD
-        return makeJwt(kakaoUserInfo.getKakaoAccount().getEmail().toString(), accessExpirationTime);
-=======
         String jwtInfo = makeJwt(kakaoUserInfo.getKakaoAccount().getEmail().toString(), accessExpirationTime);
         return jwtInfo;
->>>>>>> a037018 (build: 빌드 파일 병합)
->>>>>>> 9bd9ed5 (build: merge unmerged files)
     }
 
     // 주석 + 예시 데이터 추가
